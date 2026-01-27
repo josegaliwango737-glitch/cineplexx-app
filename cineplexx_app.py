@@ -1,3 +1,8 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 from flask import Flask, render_template, redirect, url_for, session, request
 import psycopg2
 import psycopg2.extras
@@ -10,10 +15,10 @@ app.secret_key = "myfuturecineplexx_1692"  # change later
 # ---------------------------
 
 DB_CONFIG = {
-    "host": "localhost",
-    "dbname": "cineplexx",
-    "user": "postgres",
-    "password": "myfuture_1692"
+    "host": os.getenv("DB_HOST"),
+    "dbname": os.getenv("DB_NAME"),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD")
 }
 
 
