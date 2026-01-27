@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cineplexx Movies</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .logo {
+            height: 30px;
+        }
+
+        .about {
+            font-size: 10px;
+        }
+
+        .more {
+            font-size: 40px;
+            margin-top: 4px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .movies {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 10px;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+        }
+
+        .poster {
+            height: 350px;
+            background: #ccc;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .poster-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            padding: 4px;
+            background: #513ebb;
+            border-top: 1px solid #ccc;
+        }
+
+        .btn {
+            padding: 12px 18px;
+            background: #f8f5f5;
+            border-radius: 12px;
+        }
+
+        .tasks {
+            width: 40px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top">
+        <div>
+            <img src="{{ url_for('static', filename='cineplexxlogo.jpg') }}" class="logo" alt="Cineplexx">
+            <a class="about" href="{{ url_for('about') }}">About</a>
+        </div>
+
+        <a class="more" href="{{ url_for('more') }}">≡</a>
+    </div>
+
+    <div class="movies">
+        <div class="poster"><img src="{{ url_for('static', filename='movie1.webp') }}" class="poster-img"></div>
+        <div class="poster"><img src="{{ url_for('static', filename='movie2.jpg') }}" class="poster-img"></div>
+        <div class="poster"><img src="{{ url_for('static', filename='movie3.jpg') }}" class="poster-img"></div>
+        <div class="poster"><img src="{{ url_for('static', filename='movie4.jpg') }}" class="poster-img"></div>
+        <div class="poster"><img src="{{ url_for('static', filename='movie5.jpg') }}" class="poster-img"></div>
+        <div class="poster"><img src="{{ url_for('static', filename='movie6.jpg') }}" class="poster-img"></div>
+    </div>
+
+    <div class="nav">
+        <div class="btn">Movies</div>
+        <div class="btn tasks">TASKS</div>
+        <a class="btn" href="{{ url_for('activity') }}">Activity</a>
+    </div>
+
+</body>
+
+</html>

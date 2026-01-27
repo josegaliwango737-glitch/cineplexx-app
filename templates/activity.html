@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Activity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .back {
+            font-size: 12px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a class="back" href="{{ url_for('movies') }}">&lt; BACK</a>
+
+    <h3>Activity</h3>
+
+    {% if notifications %}
+    {% for note in notifications %}
+    <div class="note">{{ note }}</div>
+    {% endfor %}
+    {% else %}
+    <div class="note">No activity yet</div>
+    {% endif %}
+
+</body>
+
+</html>

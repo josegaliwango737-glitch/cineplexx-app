@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cineplexx Login</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .logo-img {
+            max-width: 240px;
+            width: 100%;
+            height: auto;
+        }
+
+        .login-box {
+            margin-top: 40px;
+        }
+
+        input {
+            display: block;
+            margin: 12px auto;
+            padding: 10px;
+            width: 220px;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+
+        .register {
+            margin-top: 40px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="logo">
+        <img src="{{ url_for('static', filename='maincineplexxlogo2.png') }}" class="logo-img">
+    </div>
+
+    <div class="login-box">
+        <form method="post">
+            <input type="text" name="phone" placeholder="Phone Number" onfocus="if(this.value==='') this.value='+';"
+                oninput="if(this.value.charAt(0) !== '+') this.value='+';" required>
+
+            <input type="password" name="password" placeholder="Password" required>
+
+            {% if error %}
+            <div class="error">{{ error }}</div>
+            {% endif %}
+
+            <button type="submit">LOGIN</button>
+        </form>
+    </div>
+
+    <div class="register">
+        Create an account
+        <a href="{{ url_for('register') }}">REGISTER</a>
+    </div>
+
+</body>
+
+</html>
