@@ -3,7 +3,7 @@ import psycopg2
 import psycopg2.extras
 
 app = Flask(__name__)
-app.secret_key = "cineplexx_secret_key"  # change later
+app.secret_key = "myfuturecineplexx_1692"  # change later
 
 # ---------------------------
 # POSTGRESQL CONFIG
