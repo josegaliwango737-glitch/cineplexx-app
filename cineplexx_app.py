@@ -1,14 +1,18 @@
+import psycopg2.extras
+import psycopg2
+from flask import Flask, render_template, redirect, url_for, session, request
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
-from flask import Flask, render_template, redirect, url_for, session, request
-import psycopg2
-import psycopg2.extras
 
 app = Flask(__name__)
-app.secret_key = "myfuturecineplexx_1692"  # change later
+
+# SECRET KEY (use env in production, fallback for local)
+app.secret_key = os.getenv(
+    "SECRET_KEY", "myfuturecineplexx_1692")  # change later
+
 
 # ---------------------------
 # POSTGRESQL CONFIG
@@ -97,7 +101,7 @@ def register():
         confirm = request.form.get("confirm")
         referral = request.form.get("referral")
 
-        # 🔹 Capture registration IP address
+        # Capture registration IP (works behind Render proxy)
         registration_ip = request.headers.get(
             "X-Forwarded-For",
             request.remote_addr
@@ -236,7 +240,7 @@ def about():
 
 
 # ---------------------------
-# RUN APP
+# RUN APP (LOCAL ONLY)
 # ---------------------------
 
 if __name__ == "__main__":
