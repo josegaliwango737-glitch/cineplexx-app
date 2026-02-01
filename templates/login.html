@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>Cineplexx Login</title>
+
+    <!-- THIS LINE IS THE MOST IMPORTANT FIX -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         .logo {
@@ -17,7 +23,7 @@
 
         .logo-img {
             max-width: 240px;
-            width: 100%;
+            width: 70%;
             height: auto;
         }
 
@@ -28,8 +34,19 @@
         input {
             display: block;
             margin: 12px auto;
-            padding: 10px;
-            width: 220px;
+            padding: 12px;
+            width: 90%;
+            max-width: 320px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 12px;
+            width: 90%;
+            max-width: 320px;
+            font-size: 16px;
+            cursor: pointer;
         }
 
         .error {
@@ -52,8 +69,10 @@
 
     <div class="login-box">
         <form method="post">
-            <input type="text" name="phone" placeholder="Phone Number" onfocus="if(this.value==='') this.value='+';"
-                oninput="if(this.value.charAt(0) !== '+') this.value='+';" required>
+            <input type="text" name="phone" placeholder="Phone Number"
+                onfocus="if(this.value==='') this.value='+';"
+                oninput="if(this.value.charAt(0) !== '+') this.value='+';"
+                required>
 
             <input type="password" name="password" placeholder="Password" required>
 
