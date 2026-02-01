@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>More</title>
+
+    <!-- Mobile scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         body {
             margin: 0;
@@ -10,19 +14,20 @@
         }
 
         .top-section {
-            height: 20vh;
+            min-height: 20vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             background: #f2f2f2;
             padding: 20px;
+            box-sizing: border-box;
         }
 
         .account-icon {
             width: 80px;
-            height: 800px;
-            margin-bottom: 6px;
+            height: 80px;
+            margin-bottom: 8px;
             background: #ccc;
             border-radius: 50%;
             overflow: hidden;
@@ -45,11 +50,12 @@
         }
 
         .bottom-section {
-            padding: 50px;
+            padding: 24px 16px;
+            box-sizing: border-box;
         }
 
         .option {
-            padding: 12px 0;
+            padding: 14px 0;
             border-bottom: 1px solid #ddd;
             font-size: 16px;
         }
@@ -60,7 +66,7 @@
 
     <div class="top-section">
         <div class="account-icon">
-            <img src="{{ url_for('static', filename='account.png') }}" class="account-icon_img">
+            <img src="{{ url_for('static', filename='account.png') }}">
         </div>
         <div class="id">ID: {{ user_id }}</div>
         <div class="account-text">ACCOUNT</div>
